@@ -60,17 +60,17 @@ prompt = ["How may I assist you?",
     "What would you like me to do?"]
 
 chat_log=[
-    {"role": "system", "content": "Your name is DaVinci. You do not have a namesake. You are a helpful AI-based assistant."},
+    {"role": "system", "content": "Your name is Judah. You do not have a namesake. You are a helpful AI-based assistant."},
     ]
 
-#DaVinci will 'remember' earlier queries so that it has greater continuity in its response
+#Judah will 'remember' earlier queries so that it has greater continuity in its response
 #the following will delete that 'memory' three minutes after the start of the conversation
 def append_clear_countdown():
     sleep(180)
     global chat_log
     chat_log.clear()
     chat_log=[
-        {"role": "system", "content": "Your name is DaVinci. You do not have a namesake. You are a helpful assistant."},
+        {"role": "system", "content": "Your name is Judah. You do not have a namesake. You are a helpful assistant."},
         ]    
     global count
     count = 0
@@ -295,7 +295,7 @@ try:
                 pass   
             count += 1
             wake_word()
-# comment out the next line if you do not want DaVinci to verbally respond to his name        
+# comment out the next line if you do not want Judah to verbally respond to his name        
             voice(random.choice(prompt))
             recorder = Recorder()
             recorder.start()
@@ -308,7 +308,7 @@ try:
             print("You said: " + transcript)
             if Chat == 1:        
                 (res) = ChatGPT(transcript)
-                print("\nDaVinci's response is:\n")        
+                print("\nJudah's response is:\n")        
                 t1 = threading.Thread(target=voice, args=(res,))
                 t2 = threading.Thread(target=responseprinter, args=(res,))
                 t1.start()
