@@ -65,7 +65,7 @@ prompt = ["How may I assist you?",
     "What would you like me to do?"]
 
 chat_log=[
-    {"role": "system", "content": "Your name is DaVinci. You are a helpful assistant. If asked about yourself, you include your name in your response."},
+    {"role": "system", "content": "Your name is Judah. You are a helpful assistant. If asked about yourself, you include your name in your response."},
     ]
 
 def ChatGPT(query):
@@ -90,14 +90,14 @@ def responseprinter(chat):
        print(word, end="", flush=True)
     print()
 
-#DaVinci will 'remember' earlier queries so that it has greater continuity in its response
+#Judah will 'remember' earlier queries so that it has greater continuity in its response
 #the following will delete that 'memory' five minutes after the start of the conversation
 def append_clear_countdown():
     sleep(300)
     global chat_log
     chat_log.clear()
     chat_log=[
-        {"role": "system", "content": "Your name is DaVinci. You are a helpful assistant. If asked about yourself, you include your name in your response."},
+        {"role": "system", "content": "Your name is Judah. You are a helpful assistant. If asked about yourself, you include your name in your response."},
         ]    
     global count
     count = 0
