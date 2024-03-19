@@ -67,17 +67,17 @@ client = OpenAI(api_key=openai.api_key)
 prompt = ["See"]
 
 chat_log=[
-    {"role": "system", "content": "Your name is DaVinci. You do not have a namesake. You are a helpful AI-based assistant.  You always respond in Italian."},
+    {"role": "system", "content": "Your name is Judah. You do not have a namesake. You are a helpful AI-based assistant.  You always respond in Italian."},
     ]
 
-#DaVinci will 'remember' earlier queries so that it has greater continuity in its response
+#Judah will 'remember' earlier queries so that it has greater continuity in its response
 #the following will delete that 'memory' three minutes after the start of the conversation
 def append_clear_countdown():
     sleep(180)
     global chat_log
     chat_log.clear()
     chat_log=[
-        {"role": "system", "content": "Your name is DaVinci. You do not have a namesake. You are a helpful assistant.  You always respond in Italian."},
+        {"role": "system", "content": "Your name is Judah. You do not have a namesake. You are a helpful assistant.  You always respond in Italian."},
         ]    
     global count
     count = 0
@@ -210,7 +210,7 @@ def voice(chat):
 
 def wake_word():
 
-    porcupine = pvporcupine.create(keywords=["DaVinci",],
+    porcupine = pvporcupine.create(keywords=["Judah",],
                             access_key=pv_access_key,
                             model_path="/home/pi/.local/lib/python3.9/site-packages/pvporcupine/lib/common/porcupine_params_it.pv", 
                             sensitivities=[0.1,], #from 0 to 1.0 - a higher number reduces the miss rate at the cost of increased false alarms
@@ -304,7 +304,7 @@ try:
                 pass   
             count += 1
             wake_word()
-# comment out the next line if you do not want DaVinci to verbally respond to his name        
+# comment out the next line if you do not want Judah to verbally respond to his name        
             voice(random.choice(prompt))
             recorder = Recorder()
             recorder.start()
@@ -317,7 +317,7 @@ try:
             print("You said: " + transcript)
             if Chat == 1:        
                 (res) = ChatGPT(transcript)
-                print("\nDaVinci's response is:\n")        
+                print("\nJudah's response is:\n")        
                 t1 = threading.Thread(target=voice, args=(res,))
                 t2 = threading.Thread(target=responseprinter, args=(res,))
                 t1.start()
